@@ -1,4 +1,4 @@
-package company.domain;
+package com.company.domain;
 
 import java.awt.print.Book;
 import java.util.ArrayList;
@@ -6,15 +6,19 @@ import java.util.List;
 
 public class Library {
 
-    private String nameLibrary;
-    private List<Book> libraryList = new ArrayList<>();
+    protected String nameLibrary;
+    protected List<Book> libraryList = new ArrayList<>();
 
-    public List<Book> getLibraryList() {
-        return libraryList;
+    public String getNameLibrary() {
+        return nameLibrary;
     }
 
-    public static void setNameLibrary(String nameLibrary) {
-        System.out.println("Название каталога: " + nameLibrary);
+    public void setNameLibrary(String nameLibrary) {
+        this.nameLibrary = nameLibrary;
+    }
+
+    public void setLibraryList(List<Book> libraryList) {
+        this.libraryList = libraryList;
     }
 }
 

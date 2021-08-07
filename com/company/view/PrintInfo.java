@@ -1,17 +1,16 @@
-package com.company.service;
+package com.company.view;
 
-import company.domain.Library;
+import com.company.domain.Book;
+import com.company.domain.Library;
+import com.company.service.BookService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PrintInfo implements company.service.BookService {
+public class PrintInfo {
+    public static void main(String[] args) {
 
-    public PrintInfo(String bookName, String writer, String Genre, int numbersOfPages) {
-        super(bookName, writer, Genre, numbersOfPages);
-    }
-
-    public void printLibrary() {
-
+Library library = new Library();
         Scanner sc = new Scanner(System.in);
         System.out.println("Вас приветствует автоматизированный книжный каталог. Выберите действие: " +
                 "1 - создать новый каталог;" + System.lineSeparator() +
@@ -41,15 +40,17 @@ public class PrintInfo implements company.service.BookService {
             case 3:
                 System.out.println("Название каталога книг: ");
                 name = sc.nextLine();
-                printLibraryList(name);
-                System.out.println(Library.setNameLibrary(name);
+                BookService.printLibraryList(name);
+                System.out.println(library.setNameLibrary(name);
+                library.setCatalog();
                 break;
             case 4:
-                addBook();
+                library.addBook();//todo как достучаться до метода?
                 break;
             case 5:
-                removeBook(bookName);
+                library.getLibraryList(removeBook(bookName));
             case 6:
+                library.printGenre;
             case 7:
             case 8:
             case 9:

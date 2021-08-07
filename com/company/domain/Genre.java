@@ -1,4 +1,4 @@
-package company.domain;
+package com.company.domain;
 
 public enum Genre {
 
