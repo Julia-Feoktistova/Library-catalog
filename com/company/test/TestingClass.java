@@ -1,9 +1,10 @@
-package company.test;
+package com.company.test;
 
-import company.domain.Library;
+
+import com.company.domain.Library;
 
 public class TestingClass {
 
-    Library library1 = new Library();
-    library1.
-}
+
+    }
+
