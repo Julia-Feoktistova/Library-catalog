@@ -7,12 +7,4 @@ public class BookRepository {
 
     private BookRepository bookRepository = new BookRepository();
 
-    public void addBook(Book book) {
-        bookRepository.addBook(book);
-    }
-
-    public void removeBook(Book book) {
-        bookRepository.removeBook(book);
-    }
-
 }

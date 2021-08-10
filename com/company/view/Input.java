@@ -1,42 +1,50 @@
 package com.company.view;
 
-import com.company.Library;
+import com.company.domain.Book;
+import com.company.domain.Library;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Input extends Library {
+public class Input {
+    public static void main(String[] args) {
 
-    public void setCatalog() {
+        ArrayList libraryList = new ArrayList();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите количество книг в текущем сборнике:");
-        int k = sc.nextInt();
-        list_library = new ArrayList();
-        for (int i = 0; i < list_library.length; i++) {
-            System.out.println("Название  " + (i + 1) + "-й книги: ");
-            String bookNames = sc.next();
-            System.out.println("Введите автора: ");
-            String writer = sc.next();
-            System.out.println("Введите жанр книги: ");
-            String genre = sc.next();
-            System.out.println("Количество страниц: ");
-            int numbersOfPages = sc.nextInt();
-            list_library[i] = new ArrayList<Object>(bookNames, writer, genre, numbersOfPages);
-        }
-    }
+        public void setCatalog(ArrayList libraryList) {
 
-    public void printGenre(String genre) {
-        Scanner scanGenre = new Scanner(System.in);
-        System.out.println("Введите жанр который хотите вывести на экран: ");
-        String genreSelect = scanGenre.next();
-        if (genreSelect.equals(genre)) {
-            System.out.println("Книги по жанру " + genreSelect + ": ");
-            try {
-                for (int i = 0; i < list_library.length; i++) {
-                    System.out.println("Наименование " + (i + 1) + this.list_library[i].getNames());
-                }
-            } catch (Exception e) {
-                System.out.println("Такого жанра в саталоге не существует");
+            System.out.println("Введите количество книг в текущем сборнике:");
+            int k = sc.nextInt();
+            sc.close();
+            for (int i = 0; i < libraryList.size(); i++) {
+                System.out.println("Название  " + (i + 1) + "-й книги: ");
+                String bookNames = sc.next();
+                System.out.println("Введите автора: ");
+                String writer = sc.next();
+                System.out.println("Введите жанр книги: ");
+                String genre = sc.next();
+                System.out.println("Количество страниц: ");
+                int numbersOfPages = sc.nextInt();
+                ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages));
+            }
+        }
+
+        public void printGenre(Book.Genre){
+            System.out.println("Выберите жанр: 1 - детектив" + System.lineSeparator() +
+                    "2 - комедия" + System.lineSeparator() + "2 - фантастика" + System.lineSeparator() +
+                    "4 - фэнтези" + System.lineSeparator() + "5 - Романтика" + System.lineSeparator() +
+                    "6 - научная литература");
+            int genreSelect = sc.nextInt();
+            switch (genreSelect) {
+                case 1:
+                    System.out.println("Книги по жанру " + Book.Genre.DETECTIVE.getGenre() + );
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                default:
             }
         }
     }
