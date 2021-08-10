@@ -1,6 +1,7 @@
 package com.company.view;
 
-import com.company.domain.Genre;
+import com.company.domain.Book;
+import com.company.domain.Library;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class Input {
 
         ArrayList libraryList = new ArrayList();
         Scanner sc = new Scanner(System.in);
-        public void setCatalog() {
+        public void setCatalog(ArrayList libraryList) {
 
             System.out.println("Введите количество книг в текущем сборнике:");
             int k = sc.nextInt();
@@ -24,19 +25,19 @@ public class Input {
                 String genre = sc.next();
                 System.out.println("Количество страниц: ");
                 int numbersOfPages = sc.nextInt();
-                ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages););
+                ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages));
             }
         }
 
-        public void printGenre(Genre){
+        public void printGenre(Book.Genre){
             System.out.println("Выберите жанр: 1 - детектив" + System.lineSeparator() +
                     "2 - комедия" + System.lineSeparator() + "2 - фантастика" + System.lineSeparator() +
                     "4 - фэнтези" + System.lineSeparator() + "5 - Романтика" + System.lineSeparator() +
                     "6 - научная литература");
             int genreSelect = sc.nextInt();
             switch (genreSelect) {
-                case 1://todo как отсортировать по полю enum?
-                    System.out.println("Книги по жанру " + Genre.DETECTIVE + ": " +);
+                case 1:
+                    System.out.println("Книги по жанру " + Book.Genre.DETECTIVE.getGenre() + );
                     break;
                 case 2:
                 case 3:

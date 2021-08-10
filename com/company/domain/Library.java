@@ -13,6 +13,10 @@ public class Library {
         return nameLibrary;
     }
 
+    public List<Book> getLibraryList() {
+        return libraryList;
+    }
+
     public void setNameLibrary(String nameLibrary) {
         this.nameLibrary = nameLibrary;
     }

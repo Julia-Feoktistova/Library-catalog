@@ -4,7 +4,6 @@ import com.company.domain.Book;
 import com.company.domain.Library;
 import com.company.service.BookService;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PrintInfo {
@@ -27,30 +26,31 @@ Library library = new Library();
         switch (userChoice) {
             case 1:
                 System.out.println("Название каталога книг: ");
-                String name = sc.nextLine();
-                BookService.createNewLibrary(name);
-                System.out.println("каталог " + name + " создан");
+                String nameOfLibrary = sc.nextLine();
+                BookService.createNewLibrary(nameOfLibrary);
+                System.out.println("каталог " + nameOfLibrary + " создан");
                 break;
             case 2:
                 System.out.println("Название каталога книг: ");
-                name = sc.nextLine();
-                BookService.removeLibrary(name);
-                System.out.println("Каталог " + name + " удален");
+                nameOfLibrary = sc.nextLine();
+                BookService.removeLibrary(nameOfLibrary);
+                System.out.println("Каталог " + nameOfLibrary + " удален");
                 break;
             case 3:
                 System.out.println("Название каталога книг: ");
-                name = sc.nextLine();
-                BookService.printLibraryList(name);
-                System.out.println(library.setNameLibrary(name);
-                library.setCatalog();
+                nameOfLibrary = sc.nextLine();
+                LibraryView.printLibraryList(nameOfLibrary);
+                System.out.println(library.setNameLibrary(nameOfLibrary);
+                library.getLibraryList();
                 break;
             case 4:
-                library.addBook();//todo как достучаться до метода?
+                LibraryView.addBook(library, Book book);//todo как достучаться до метода?
                 break;
             case 5:
-                library.getLibraryList(removeBook(bookName));
+                LibraryView.removeBook(library, Book book));
             case 6:
-                library.printGenre;
+
+
             case 7:
             case 8:
             case 9:
