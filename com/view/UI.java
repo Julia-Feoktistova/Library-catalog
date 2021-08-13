@@ -1,15 +1,13 @@
-package com.company.view;
-
-import com.company.domain.Book;
-import com.company.domain.Library;
-import com.company.service.BookService;
+package com.view;
 
 import java.util.Scanner;
 
-public class PrintInfo {
+/**
+ * Консольное меню
+ */
+public class UI {
     public static void main(String[] args) {
 
-Library library = new Library();
         Scanner sc = new Scanner(System.in);
         System.out.println("Вас приветствует автоматизированный книжный каталог. Выберите действие: " +
                 "1 - создать новый каталог;" + System.lineSeparator() +
@@ -27,7 +25,7 @@ Library library = new Library();
             case 1:
                 System.out.println("Название каталога книг: ");
                 String nameOfLibrary = sc.nextLine();
-                BookService.createNewLibrary(nameOfLibrary);
+                LibraryView.setCatalog(nameOfLibrary);
                 System.out.println("каталог " + nameOfLibrary + " создан");
                 break;
             case 2:
@@ -44,7 +42,7 @@ Library library = new Library();
                 library.getLibraryList();
                 break;
             case 4:
-                LibraryView.addBook(library, Book book);//todo как достучаться до метода?
+                LibraryView.addBook(book)
                 break;
             case 5:
                 LibraryView.removeBook(library, Book book));

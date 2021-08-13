@@ -1,13 +1,27 @@
-package com.company.domain;
+package com.domain;
 
-public class Book {
+import java.io.Serial;
+import java.io.Serializable;
 
-    protected String bookName;
-    protected String writer;
-    protected int numbersOfPages;
+/**
+ * Доменный класс Книга
+ */
+public class Book implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private String bookName;
+    private String writer;
+    private int numbersOfPages;
 
     public Book() {
 
+    }
+
+    public Book(String bookName, String writer, int numbersOfPages) {
+        this.bookName = bookName;
+        this.writer = writer;
+        this.numbersOfPages = numbersOfPages;
     }
 
     public enum Genre {
