@@ -1,5 +1,7 @@
 package com.view;
 
+import com.domain.Book;
+
 import java.util.Scanner;
 
 /**
@@ -25,27 +27,28 @@ public class UI {
             case 1:
                 System.out.println("Название каталога книг: ");
                 String nameOfLibrary = sc.nextLine();
-                LibraryView.setCatalog(nameOfLibrary);
+                //LibraryView.setCatalog(nameOfLibrary);
                 System.out.println("каталог " + nameOfLibrary + " создан");
                 break;
             case 2:
-                System.out.println("Название каталога книг: ");
+               /* System.out.println("Название каталога книг: ");
                 nameOfLibrary = sc.nextLine();
                 BookService.removeLibrary(nameOfLibrary);
                 System.out.println("Каталог " + nameOfLibrary + " удален");
-                break;
+                break;*/
             case 3:
-                System.out.println("Название каталога книг: ");
+              /*  System.out.println("Название каталога книг: ");
                 nameOfLibrary = sc.nextLine();
                 LibraryView.printLibraryList(nameOfLibrary);
                 System.out.println(library.setNameLibrary(nameOfLibrary);
                 library.getLibraryList();
-                break;
+                break;*/
             case 4:
-                LibraryView.addBook(book)
+                //todo где переменная book? сначала нужно собрать ее и передать в метод
+                ///LibraryView.addBook()
                 break;
             case 5:
-                LibraryView.removeBook(library, Book book));
+                //LibraryView.removeBook(library, book);
             case 6:
 
 

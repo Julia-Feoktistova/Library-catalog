@@ -1,24 +1,25 @@
 package com.view;
 
-import java.awt.print.Book;
+import com.domain.Book;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
  * Класс для создания каталога через консольные комментарии пользователя
  **/
 public class LibraryView {
     Book book = new Book();
 
-    public void printLibraryList(ArrayList libraryList) {
+    public void printLibraryList(ArrayList<Book> libraryList) {
         int i = 0;
-        for (Book:
-             libraryList) {
+        for (Book book: libraryList) {
             System.out.println(i++ + "Название  " + i + "-й книги: " + book);
-            libraryList.set(book);
+            //libraryList.set(book); todo что пытались тут сделать? удалить нужно
         }
     }
 
-    public void addBook(ArrayList libraryList) {
+    public void addBook(ArrayList<Book> libraryList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название книги: ");
         book.setBookName(scanner.next());
@@ -28,7 +29,7 @@ public class LibraryView {
                 "2 - комедия" + System.lineSeparator() + "2 - фантастика" + System.lineSeparator() +
                 "4 - фэнтези" + System.lineSeparator() + "5 - Романтика" + System.lineSeparator() +
                 "6 - научная литература");
-        Book.Genre.setGenre() = scanner.next();
+        book.setGenre(Book.Genre.getByValue(scanner.next()));
         System.out.println("Кол-во станиц: ");
         book.setNumbersOfPages(scanner.nextInt());
         libraryList.add(book);
@@ -38,7 +39,7 @@ public class LibraryView {
         libraryList.remove(book);
     }
 
-    public void printBookInfo(book) {
+    public void printBookInfo(Book book) {
         System.out.println(book);
     }
 
@@ -59,7 +60,7 @@ public class LibraryView {
             String genre = sc.next();
             System.out.println("Количество страниц: ");
             int numbersOfPages = sc.nextInt();
-            ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages));
+            //ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages));
         }
     }
 
@@ -71,7 +72,7 @@ public class LibraryView {
         int genreSelect = sc.nextInt();
         switch (genreSelect) {
             case 1:
-                System.out.println("Книги по жанру " + Book.Genre.DETECTIVE.getGenre() +); //как выполнить фильтрацию?
+                //System.out.println("Книги по жанру " + Book.Genre.DETECTIVE.getValue() +); //как выполнить фильтрацию?
                 break;
             case 2:
             case 3:

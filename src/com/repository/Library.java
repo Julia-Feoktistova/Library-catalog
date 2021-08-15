@@ -1,6 +1,7 @@
 package com.repository;
 
-import java.awt.print.Book;
+import com.domain.Book;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ public class Library implements Serializable {
 
     private List<Book> libraryList = new ArrayList<Book>();
 
+    public void addBook(com.domain.Book book){
+        libraryList.add(book);
+    }
+
     public List<Book> getLibraryList() {
         return libraryList;
     }
@@ -26,6 +31,7 @@ public class Library implements Serializable {
     public String getNameLibrary() {
         return nameLibrary;
     }
+
     public static void setNameLibrary(String nameLibrary) {
         System.out.println("Название каталога: " + nameLibrary);
     }

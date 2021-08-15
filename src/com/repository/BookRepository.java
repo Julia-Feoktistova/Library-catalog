@@ -1,6 +1,7 @@
 package com.repository;
 
-import java.awt.print.Book;
+import com.domain.Book;
+
 import java.io.*;
 
 /**
@@ -34,6 +35,10 @@ public class BookRepository {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public Library getLibrary() {
+        return library;
     }
 }
 
