@@ -1,13 +1,36 @@
-package com.company.domain;
+package com.domain;
 
-public class Book {
+import java.io.Serial;
+import java.io.Serializable;
 
-    protected String bookName;
-    protected String writer;
-    protected int numbersOfPages;
+/**
+ * Доменный класс Книга
+ */
+public class Book implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private String bookName;
+    private String writer;
+    private int numbersOfPages;
+    private Genre genre;
 
     public Book() {
 
+    }
+
+    public Book(String bookName, String writer, int numbersOfPages) {
+        this.bookName = bookName;
+        this.writer = writer;
+        this.numbersOfPages = numbersOfPages;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public enum Genre {
@@ -19,19 +42,23 @@ public class Book {
         DETECTIVE ("Детектив"),
         SCIENCE ("Научная литература");
 
-        private static String genre;
-
-        public Genre setGenre(String genre) {
-            this.genre = genre;
-            return this;
-        }
+        private String value;
 
         Genre(String genre) {
-
+            this.value = genre;
         }
 
-        public static String getGenre() {
-            return genre;
+        public String getValue() {
+            return value;
+        }
+
+        public static Genre getByValue(String value) {
+            for (Genre genre : values()) {
+                if (genre.value.equalsIgnoreCase(value)) {
+                    return genre;
+                }
+            }
+            return SCIENCE;
         }
     }
 
@@ -67,7 +94,7 @@ public class Book {
         return "Book{" +
                 "bookName ='" + bookName + '\'' +
                 ", writer ='" + writer + '\'' +
-                ", genre ='" + Genre.getGenre() + '\'' +
+                ", genre ='"  + '\'' +
                 ", numbersOfPages =" + numbersOfPages +
                 '}';
     }

@@ -1,15 +1,15 @@
-package com.company.view;
+package com.view;
 
-import com.company.domain.Book;
-import com.company.domain.Library;
-import com.company.service.BookService;
+import com.domain.Book;
 
 import java.util.Scanner;
 
-public class PrintInfo {
+/**
+ * Консольное меню
+ */
+public class UI {
     public static void main(String[] args) {
 
-Library library = new Library();
         Scanner sc = new Scanner(System.in);
         System.out.println("Вас приветствует автоматизированный книжный каталог. Выберите действие: " +
                 "1 - создать новый каталог;" + System.lineSeparator() +
@@ -27,27 +27,28 @@ Library library = new Library();
             case 1:
                 System.out.println("Название каталога книг: ");
                 String nameOfLibrary = sc.nextLine();
-                BookService.createNewLibrary(nameOfLibrary);
+                //LibraryView.setCatalog(nameOfLibrary);
                 System.out.println("каталог " + nameOfLibrary + " создан");
                 break;
             case 2:
-                System.out.println("Название каталога книг: ");
+               /* System.out.println("Название каталога книг: ");
                 nameOfLibrary = sc.nextLine();
                 BookService.removeLibrary(nameOfLibrary);
                 System.out.println("Каталог " + nameOfLibrary + " удален");
-                break;
+                break;*/
             case 3:
-                System.out.println("Название каталога книг: ");
+              /*  System.out.println("Название каталога книг: ");
                 nameOfLibrary = sc.nextLine();
                 LibraryView.printLibraryList(nameOfLibrary);
                 System.out.println(library.setNameLibrary(nameOfLibrary);
                 library.getLibraryList();
-                break;
+                break;*/
             case 4:
-                LibraryView.addBook(library, Book book);//todo как достучаться до метода?
+                //todo где переменная book? сначала нужно собрать ее и передать в метод
+                ///LibraryView.addBook()
                 break;
             case 5:
-                LibraryView.removeBook(library, Book book));
+                //LibraryView.removeBook(library, book);
             case 6:
 
 
