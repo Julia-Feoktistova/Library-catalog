@@ -13,39 +13,51 @@ public class Book implements Serializable {
     private String bookName;
     private String writer;
     private int numbersOfPages;
+    private Genre genre;
 
-    public Book() {
+    public Book(int i, Book book) {//для репорта через тип Мар
 
     }
 
-    public Book(String bookName, String writer, int numbersOfPages) {
+    public Book(String bookName, String writer, int numbersOfPages, Genre genre) {
         this.bookName = bookName;
         this.writer = writer;
         this.numbersOfPages = numbersOfPages;
+        this.genre = genre;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public enum Genre {
 
-        FANTASY ("Фэнтези"),
-        FANTASTIC ("Фантастика"),
-        ROMANTIC ("Романтика"),
-        COMEDY ("Комедия"),
-        DETECTIVE ("Детектив"),
-        SCIENCE ("Научная литература");
+        FANTASY("Фэнтези"),
+        FANTASTIC("Фантастика"),
+        ROMANTIC("Романтика"),
+        COMEDY("Комедия"),
+        DETECTIVE("Детектив"),
+        SCIENCE("Научная литература"),
+        ANOTHER("Другой жанр");
 
-        private static String genre;
+        private String value;
 
-        public Genre setGenre(String genre) {
-            this.genre = genre;
-            return this;
-        }
 
         Genre(String genre) {
-
+            this.value = genre;
         }
 
-        public static String getGenre() {
-            return genre;
+        public static Genre getByValue(String value) {
+            for (Genre genre : values()) {
+                if (genre.value.equalsIgnoreCase(value)) {
+                    return genre;
+                }
+            }
+            return ANOTHER;
         }
     }
 
@@ -78,12 +90,11 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "bookName ='" + bookName + '\'' +
-                ", writer ='" + writer + '\'' +
-                ", genre ='" + Genre.getGenre() + '\'' +
-                ", numbersOfPages =" + numbersOfPages +
-                '}';
+        return "Книга: " +
+                "название = " + bookName + '\'' +
+                ", автор = " + writer + '\'' +
+                ", жанр = " + Genre.getByValue(genre.value) + '\'' +
+                ", страниц = " + numbersOfPages;
     }
 }
 

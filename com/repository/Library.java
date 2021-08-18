@@ -1,33 +1,35 @@
 package com.repository;
 
-import java.awt.print.Book;
+import com.domain.Book;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 
 /**
  * Создание и изменение коллекции каталог
  */
 public class Library implements Serializable {
 
-    private String nameLibrary;
-
     @Serial
     private static final long serialVersionUID = 2L;
 
+    private static ArrayList<Book> libraryList = new ArrayList<>();
 
-    private List<Book> libraryList = new ArrayList<Book>();
+    public static Map<Integer, Book> allBooks; // Для репорта
 
-    public List<Book> getLibraryList() {
-        return libraryList;
+    public static void removeLibrary(ArrayList<Book> libraryList) {
     }
 
-    public String getNameLibrary() {
-        return nameLibrary;
+    public void addBook(com.domain.Book book) {
+        libraryList.add(new Book(1, new Book("Book1", "writer1", 100, Book.Genre.ANOTHER)));
     }
-    public static void setNameLibrary(String nameLibrary) {
-        System.out.println("Название каталога: " + nameLibrary);
+
+    public void remove(com.domain.Book book) {
+        libraryList.remove(book);
     }
 }
 

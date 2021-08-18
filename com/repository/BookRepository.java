@@ -1,6 +1,7 @@
 package com.repository;
 
-import java.awt.print.Book;
+import com.domain.Book;
+
 import java.io.*;
 
 /**
@@ -11,7 +12,8 @@ public class BookRepository {
 
     private final String LIBRARY_FILE = "Library_Catalog.javaDoc";
     private Library library;
-    public void addBookToFile(Book book)  {
+
+    public static void addBookToFile(Book book) { //записать Экземпляр в файл
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream("Library_Catalog.javaDoc");
@@ -23,8 +25,10 @@ public class BookRepository {
         }
     }
 
-    public void getBookFromFile(Book book) {
-        try {FileInputStream fis = new FileInputStream("Library_Catalog.javaDoc");
+
+    public void getBookFromFile(Book book) { //прочитать из файла
+        try {
+            FileInputStream fis = new FileInputStream("Library_Catalog.javaDoc");
             ObjectInputStream ois = null;
             ois = new ObjectInputStream(fis);
             Book booksFromFile = ((Book) ois.readObject());
@@ -35,54 +39,58 @@ public class BookRepository {
             e.printStackTrace();
         }
     }
+
+    public Library getLibrary(Library library) {
+        return library;
+    }
 }
 
 /**
  * FileWriter fileWriter = null;
- *
- *     FileInputStream readEng = null;
- *     InputStreamReader readRuss = null;
- *     int biteInFile = 0;
- *
- *  try {  //создать файл
- *             File file = new File(LIBRARY_FILE);
- *             if (!file.exists()) {
- *                 file.createNewFile();
- *             }
- *         } catch (IOException exception) {
- *             System.out.println(exception.getMessage());
- *         }
- *         try { //записать в файл
- *             fileWriter = new FileWriter("Library_Catalog.javaDoc", true);
- *             fileWriter.write(String.valueOf(book));
- *         } catch (IOException exception) {
- *             exception.printStackTrace();
- *         } finally {
- *             try {
- *                 fileWriter.close();
- *             } catch (IOException exception) {
- *                 exception.printStackTrace();
- *             }
- *         }
- *
- *         try {
- *             readEng = new FileInputStream("Library_Catalog.javaDoc");
- *             readRuss = new InputStreamReader(readEng, "UTF-8");//русская кодировка
- *             while ((biteInFile = readEng.read()) != -1) {
- *                 System.out.print((char) biteInFile);
- *             }
- *         } catch (IOException e) {
- *             e.printStackTrace(); }
- *                 finally {
- *             try {
- *                 readEng.close();
- *             } catch (IOException exception) {
- *                 exception.printStackTrace();
- *             } try {
- *                 readRuss.close();
- *             } catch (IOException exception) {
- *                 exception.printStackTrace();
- *             }
- *         }
- *     }
+ * <p>
+ * FileInputStream readEng = null;
+ * InputStreamReader readRuss = null;
+ * int biteInFile = 0;
+ * <p>
+ * try {  //создать файл
+ * File file = new File(LIBRARY_FILE);
+ * if (!file.exists()) {
+ * file.createNewFile();
+ * }
+ * } catch (IOException exception) {
+ * System.out.println(exception.getMessage());
+ * }
+ * try { //записать в файл
+ * fileWriter = new FileWriter("Library_Catalog.javaDoc", true);
+ * fileWriter.write(String.valueOf(book));
+ * } catch (IOException exception) {
+ * exception.printStackTrace();
+ * } finally {
+ * try {
+ * fileWriter.close();
+ * } catch (IOException exception) {
+ * exception.printStackTrace();
+ * }
+ * }
+ * <p>
+ * try {
+ * readEng = new FileInputStream("Library_Catalog.javaDoc");
+ * readRuss = new InputStreamReader(readEng, "UTF-8");//русская кодировка
+ * while ((biteInFile = readEng.read()) != -1) {
+ * System.out.print((char) biteInFile);
+ * }
+ * } catch (IOException e) {
+ * e.printStackTrace(); }
+ * finally {
+ * try {
+ * readEng.close();
+ * } catch (IOException exception) {
+ * exception.printStackTrace();
+ * } try {
+ * readRuss.close();
+ * } catch (IOException exception) {
+ * exception.printStackTrace();
+ * }
+ * }
+ * }
  */

@@ -1,84 +1,78 @@
 package com.view;
 
-import java.awt.print.Book;
+import com.domain.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
  * Класс для создания каталога через консольные комментарии пользователя
  **/
 public class LibraryView {
-    Book book = new Book();
 
-    public void printLibraryList(ArrayList libraryList) {
-        int i = 0;
-        for (Book:
-             libraryList) {
-            System.out.println(i++ + "Название  " + i + "-й книги: " + book);
-            libraryList.set(book);
+    static ArrayList libraryList = new ArrayList();
+
+// todo   public static void printLibraryList(Library libraryList, String nameOfLibrary) {
+//        int i = 0;
+//        for (Object book : libraryList) {
+//            System.out.println(i++ + "Название  " + i + "-й книги: " + book);
+//            libraryList.set(i, book);
+//        }
+//    }
+
+
+    public static ArrayList<Book> setCatalog(ArrayList<Book> libraryList) { //создать библиотеку
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите количество книг в текущем сборнике:");
+        int k = scanner.nextInt();
+        System.out.println("кол-во книг = " + k);
+        scanner.close();
+        for (int i = 0; i < libraryList.size(); i++) {
+            Book book = new Book(1, new Book("Book1", "writer1", 100, Book.Genre.ANOTHER));
+            libraryList.add(i, book);
         }
+        return libraryList;
     }
 
-    public void addBook(ArrayList libraryList) {
+    public static void addBook(Book book) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название книги: ");
         book.setBookName(scanner.next());
         System.out.println("Введите автора книги: ");
-        book.setWriter(scanner.nextLine());
+        book.setWriter(scanner.next());
         System.out.println("Выберите жанр: 1 - детектив" + System.lineSeparator() +
-                "2 - комедия" + System.lineSeparator() + "2 - фантастика" + System.lineSeparator() +
+                "2 - комедия" + System.lineSeparator() + "3 - фантастика" + System.lineSeparator() +
                 "4 - фэнтези" + System.lineSeparator() + "5 - Романтика" + System.lineSeparator() +
                 "6 - научная литература");
-        Book.Genre.setGenre() = scanner.next();
+        // book.setGenre(Book.Genre.getByValue(scanner.next()));
+        int genreSelect = scanner.nextInt();
+        switch (genreSelect) {
+            case 1:
+                book.setGenre(Book.Genre.DETECTIVE);
+            case 2:
+                book.setGenre(Book.Genre.COMEDY);
+            case 3:
+                book.setGenre(Book.Genre.FANTASTIC);
+            case 4:
+                book.setGenre(Book.Genre.FANTASY);
+            case 5:
+                book.setGenre(Book.Genre.ROMANTIC);
+            case 6:
+                book.setGenre(Book.Genre.SCIENCE);
+            default:
+                book.setGenre(Book.Genre.ANOTHER);
+        }
         System.out.println("Кол-во станиц: ");
         book.setNumbersOfPages(scanner.nextInt());
         libraryList.add(book);
-    }
-
-    public void removeBook(ArrayList libraryList, Book book) {
-        libraryList.remove(book);
-    }
-
-    public void printBookInfo(book) {
         System.out.println(book);
     }
 
-    ArrayList libraryList = new ArrayList();
-    Scanner sc = new Scanner(System.in);
-
-    public void setCatalog(ArrayList libraryList) { //создать библиотеку
-
-        System.out.println("Введите количество книг в текущем сборнике:");
-        int k = sc.nextInt();
-        sc.close();
-        for (int i = 0; i < libraryList.size(); i++) {
-            System.out.println("Название  " + (i + 1) + "-й книги: ");
-            String bookNames = sc.next();
-            System.out.println("Введите автора: ");
-            String writer = sc.next();
-            System.out.println("Введите жанр книги: ");
-            String genre = sc.next();
-            System.out.println("Количество страниц: ");
-            int numbersOfPages = sc.nextInt();
-            ArrayList libraryList1 = libraryList.set(i, (bookNames, writer, genre, numbersOfPages));
-        }
+    public static void removeBook(ArrayList<Book> libraryList, Book book) {
+        libraryList.remove(book);
     }
 
-    public void printGenre() { //фильтровать по жанру
-        System.out.println("Выберите жанр: 1 - детектив" + System.lineSeparator() +
-                "2 - комедия" + System.lineSeparator() + "2 - фантастика" + System.lineSeparator() +
-                "4 - фэнтези" + System.lineSeparator() + "5 - Романтика" + System.lineSeparator() +
-                "6 - научная литература");
-        int genreSelect = sc.nextInt();
-        switch (genreSelect) {
-            case 1:
-                System.out.println("Книги по жанру " + Book.Genre.DETECTIVE.getGenre() +); //как выполнить фильтрацию?
-                break;
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            default:
-        }
+
+    public static void printBookInfo(Book book) {
+        System.out.println(book);
     }
 }
